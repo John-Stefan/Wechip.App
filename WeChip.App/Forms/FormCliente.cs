@@ -103,6 +103,7 @@ namespace WeChip.App.Forms
                 cliente = clienteResult;
 
                 HabilitaCampos(true);
+                buttonSalvar.Enabled = false;
             }
         }
 
@@ -132,7 +133,7 @@ namespace WeChip.App.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"{ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpaCampos();
             }
         }

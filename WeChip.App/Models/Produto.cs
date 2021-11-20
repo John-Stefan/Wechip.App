@@ -9,6 +9,7 @@ namespace WeChip.App.Models
 {
     public class Produto
     {
+        [JsonProperty("id")]
         public int Id { get; set; }
 
         [JsonProperty("codigo")]

@@ -62,6 +62,7 @@ namespace WeChip.App.Forms
         {
             produto = null;
             HabilitaCampos(true);
+            buttonEditar.Enabled = false;
             LimpaCampos();
         }
 
@@ -75,10 +76,8 @@ namespace WeChip.App.Forms
                 ValidarCampos(textBoxDescricao.Text, "Descrição");
                 ValidarCampos(textBoxPreco.Text, "Preço");
 
-                if (comboBoxProduto.SelectedIndex == notSelection)
-                {
-                    throw new Exception("Selecione o tipo do produto");
-                }
+                if (comboBoxProduto.SelectedIndex == notSelection)                
+                    throw new Exception("Selecione o tipo do produto");                
 
                 var response = await _repositorio.CadastroProdutoAsync(new Produto
                 {
@@ -93,10 +92,13 @@ namespace WeChip.App.Forms
                     MessageBox.Show($"Cadastro do produto {textBoxDescricao.Text} realizado com sucesso", "Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpaCampos();
                 }
+                else                
+                    throw new Exception("Erro ao tentar realizar requisição ao servidor");
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"{ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -110,10 +112,45 @@ namespace WeChip.App.Forms
                 textBoxDescricao.Text = produtoResult.Descricao;
                 textBoxPreco.Text = produtoResult.Preco.ToString();
                 comboBoxProduto.SelectedIndex = 1;
-                comboBoxProduto.SelectedIndex = produtoResult.TipoId - 1;                
+                comboBoxProduto.SelectedIndex = produtoResult.TipoId - 1;
+                produto = produtoResult;
 
                 HabilitaCampos(true);
                 textBoxCodigo.Enabled = false;
+                buttonSalvar.Enabled = false;
+            }
+        }
+
+        private async void buttonEditar_Click(object sender, EventArgs e)
+        {
+            var notSelection = -1;
+
+            try
+            {
+                ValidarCampos(textBoxCodigo.Text, "Codigo");
+                ValidarCampos(textBoxDescricao.Text, "Descrição");
+                ValidarCampos(textBoxPreco.Text, "Preço");
+
+                if (comboBoxProduto.SelectedIndex == notSelection)                
+                    throw new Exception("Selecione o tipo do produto");
+
+                produto.Codigo = textBoxCodigo.Text;
+                produto.Descricao = textBoxDescricao.Text;
+                produto.Preco = Convert.ToDecimal(textBoxPreco.Text.Replace("R$ ", ""));
+
+                var response = await _repositorio.AlterarProdutoAsync(produto);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show($"Produto {textBoxDescricao.Text} foi atualizado com sucesso", "Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    HabilitaCampos(false);
+                    LimpaCampos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LimpaCampos();
             }
         }
     }

@@ -81,5 +81,41 @@ namespace WeChip.App.Repository
                 return produto;
             }
         }
+
+        public async Task<HttpResponseMessage> AlterarProdutoAsync(Produto produto)
+        {
+            var response = new HttpResponseMessage();
+
+            try
+            {
+                HttpClient client = new HttpClient();
+
+                client.BaseAddress = new Uri("http://localhost:5000");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Login.Token);
+
+                var jsonContent = JsonConvert.SerializeObject(new Produto
+                {
+                    Descricao = produto.Descricao,
+                    Tipo = produto.Tipo,
+                    Preco = produto.Preco
+                });
+                var contentString = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                contentString.Headers.ContentType = new
+                MediaTypeHeaderValue("application/json");
+
+                response = await client.PutAsync($"v1/produtos/{produto.Id}", contentString);
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return response;
+            }
+        }
     }
 }

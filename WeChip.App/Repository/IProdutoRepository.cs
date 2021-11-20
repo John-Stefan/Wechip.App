@@ -12,5 +12,6 @@ namespace WeChip.App.Repository
     {
         Task<HttpResponseMessage> CadastroProdutoAsync(Produto produto);
         Task<Produto> PesquisarProdutoAsync(string codigoOrDescricao);
+        Task<HttpResponseMessage> AlterarProdutoAsync(Produto produto);
     }
 }
