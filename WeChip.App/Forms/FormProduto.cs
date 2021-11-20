@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WeChip.App.Models;
 using WeChip.App.Repository;
 
 namespace WeChip.App.Forms
@@ -14,6 +15,8 @@ namespace WeChip.App.Forms
     public partial class FormProduto : Form
     {
         IProdutoTipoRepository _repositorioProdutoTipo = new ProdutoTipoRepository();
+        IProdutoRepository _repositorio = new ProdutoRepository();
+        Produto produto = new Produto();
 
         public FormProduto()
         {
@@ -57,6 +60,7 @@ namespace WeChip.App.Forms
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            produto = null;
             HabilitaCampos(true);
             LimpaCampos();
         }
@@ -76,11 +80,40 @@ namespace WeChip.App.Forms
                     throw new Exception("Selecione o tipo do produto");
                 }
 
-               //Realizar o insert
+                var response = await _repositorio.CadastroProdutoAsync(new Produto
+                {
+                    Codigo = textBoxCodigo.Text,
+                    Descricao = textBoxDescricao.Text,
+                    Preco = Convert.ToDecimal(textBoxPreco.Text.Replace("R$ ", "")),
+                    Tipo = comboBoxProduto.SelectedIndex + 1
+                });
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show($"Cadastro do produto {textBoxDescricao.Text} realizado com sucesso", "Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpaCampos();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private async void buttonPesquisar_Click(object sender, EventArgs e)
+        {
+            var produtoResult = await _repositorio.PesquisarProdutoAsync(textBoxPesquisa.Text);
+
+            if (produtoResult != null)
+            {
+                textBoxCodigo.Text = produtoResult.Codigo;
+                textBoxDescricao.Text = produtoResult.Descricao;
+                textBoxPreco.Text = produtoResult.Preco.ToString();
+                comboBoxProduto.SelectedIndex = 1;
+                comboBoxProduto.SelectedIndex = produtoResult.TipoId - 1;                
+
+                HabilitaCampos(true);
+                textBoxCodigo.Enabled = false;
             }
         }
     }

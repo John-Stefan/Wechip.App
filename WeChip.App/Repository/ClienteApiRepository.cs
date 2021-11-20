@@ -38,7 +38,7 @@ namespace WeChip.App.Repository
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"{ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return response;
             }
@@ -76,7 +76,7 @@ namespace WeChip.App.Repository
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"{ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return cliente;
             }
@@ -112,7 +112,7 @@ namespace WeChip.App.Repository
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"{ex.Message}", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return response;
             }

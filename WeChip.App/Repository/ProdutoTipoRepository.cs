@@ -40,7 +40,7 @@ namespace WeChip.App.Repository
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"{ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return produtoTipo;
             }

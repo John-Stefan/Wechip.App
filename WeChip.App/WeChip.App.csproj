@@ -180,8 +180,10 @@
     <Compile Include="Repository\ClienteApiRepository.cs" />
     <Compile Include="Repository\IClienteApiRepository.cs" />
     <Compile Include="Repository\ILoginApiRepository.cs" />
+    <Compile Include="Repository\IProdutoRepository.cs" />
     <Compile Include="Repository\IProdutoTipoRepository.cs" />
     <Compile Include="Repository\LoginRepository.cs" />
+    <Compile Include="Repository\ProdutoRepository.cs" />
     <Compile Include="Repository\ProdutoTipoRepository.cs" />
     <EmbeddedResource Include="Forms\FormCliente.resx">
       <DependentUpon>FormCliente.cs</DependentUpon>

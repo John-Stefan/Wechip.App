@@ -59,6 +59,7 @@
             this.buttonPesquisar.TabIndex = 1;
             this.buttonPesquisar.Text = "Buscar";
             this.buttonPesquisar.UseVisualStyleBackColor = true;
+            this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
             // 
             // labelCodigo
             // 
