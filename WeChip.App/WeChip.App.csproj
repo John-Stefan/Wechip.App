@@ -162,6 +162,12 @@
     <Compile Include="Forms\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormOfertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormOfertas.Designer.cs">
+      <DependentUpon>FormOfertas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,20 +177,28 @@
     <Compile Include="Forms\txtCredito.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Oferta.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\ProdutoTipo.cs" />
+    <Compile Include="Models\Status.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ClienteApiRepository.cs" />
     <Compile Include="Repository\IClienteApiRepository.cs" />
     <Compile Include="Repository\ILoginApiRepository.cs" />
+    <Compile Include="Repository\IOfertaApiRepository.cs" />
     <Compile Include="Repository\IProdutoRepository.cs" />
     <Compile Include="Repository\IProdutoTipoRepository.cs" />
+    <Compile Include="Repository\IStatusApiRepository.cs" />
     <Compile Include="Repository\LoginRepository.cs" />
+    <Compile Include="Repository\OfertaApiRepository.cs" />
     <Compile Include="Repository\ProdutoRepository.cs" />
     <Compile Include="Repository\ProdutoTipoRepository.cs" />
+    <Compile Include="Repository\StatusApiRepository.cs" />
+    <Compile Include="View\ClienteModelGridView.cs" />
     <EmbeddedResource Include="Forms\FormCliente.resx">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormOfertas.resx">
+      <DependentUpon>FormOfertas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormProduto.resx">
       <DependentUpon>FormProduto.cs</DependentUpon>

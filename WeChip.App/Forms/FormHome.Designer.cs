@@ -86,6 +86,7 @@
             this.ofertasToolStripMenuItem.Name = "ofertasToolStripMenuItem";
             this.ofertasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ofertasToolStripMenuItem.Text = "Ofertas";
+            this.ofertasToolStripMenuItem.Click += new System.EventHandler(this.ofertasToolStripMenuItem_Click);
             // 
             // sAIRToolStripMenuItem
             // 

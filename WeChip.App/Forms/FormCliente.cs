@@ -23,6 +23,8 @@ namespace WeChip.App.Forms
 
             HabilitaCampos(false);
             textBoxCredito.Enabled = false;
+            buttonSalvar.Enabled = false;
+            buttonEditar.Enabled = false;
         }   
 
         private void HabilitaCampos(bool active)
@@ -30,8 +32,6 @@ namespace WeChip.App.Forms
             textBoxNome.Enabled = active;
             maskedTextBoxCPF.Enabled = active;
             maskedTextBoxTelefone.Enabled = active;
-
-            buttonEditar.Enabled = active;
         }
 
         private void LimpaCampos()
@@ -46,6 +46,8 @@ namespace WeChip.App.Forms
         {
             HabilitaCampos(true);
             textBoxCredito.Enabled = true;
+            buttonSalvar.Enabled = true;
+            buttonEditar.Enabled = false;
             LimpaCampos();
         }
 
@@ -74,6 +76,10 @@ namespace WeChip.App.Forms
                     MessageBox.Show($"Cadastro do cliente {textBoxNome.Text} realizado com sucesso", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpaCampos();
                     textBoxCredito.Enabled = false;
+                    textBoxNome.Enabled = false;
+                    maskedTextBoxCPF.Enabled = false;
+                    maskedTextBoxTelefone.Enabled = false;
+                    buttonSalvar.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -94,7 +100,6 @@ namespace WeChip.App.Forms
 
             if (clienteResult != null)
             {
-                textBoxCredito.Enabled = false;
                 textBoxNome.Text = clienteResult.Nome;
                 textBoxCredito.Text = clienteResult.Credito.ToString();
                 maskedTextBoxTelefone.Text = clienteResult.Telefone;
@@ -104,6 +109,8 @@ namespace WeChip.App.Forms
 
                 HabilitaCampos(true);
                 buttonSalvar.Enabled = false;
+                buttonEditar.Enabled = true;
+                textBoxCredito.Enabled = true;
             }
         }
 
@@ -121,6 +128,8 @@ namespace WeChip.App.Forms
                 cliente.Nome = textBoxNome.Text;
                 cliente.Telefone = maskedTextBoxTelefone.Text;
                 cliente.CPF = maskedTextBoxCPF.Text;
+                cliente.Credito = Convert.ToDecimal(textBoxCredito.Text.Replace("R$ ", ""));
+                cliente.StatusId = "0001";
 
                 var response = await _repositorio.AlterarClienteAsync(cliente);
 
@@ -129,6 +138,8 @@ namespace WeChip.App.Forms
                     MessageBox.Show($"Cliente {textBoxNome.Text} foi atualizado com sucesso", "Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     HabilitaCampos(false);
                     LimpaCampos();
+                    buttonEditar.Enabled = false;
+                    textBoxCredito.Enabled = false;
                 }
             }
             catch (Exception ex)

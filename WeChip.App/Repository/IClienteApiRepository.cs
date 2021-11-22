@@ -12,6 +12,9 @@ namespace WeChip.App.Repository
     {
         Task<HttpResponseMessage> CadastroClienteAsync(Cliente cliente);
         Task<Cliente> PesquisarClienteAsync(string nameOrCpf);
+        Task<List<Cliente>> GetClientesAsync();
+        Task<List<Cliente>> GetClientesByNameOrCPFAsync(string busca);
         Task<HttpResponseMessage> AlterarClienteAsync(Cliente cliente);
+        Task<Cliente> GetClienteByIdAsync(int id);
     }
 }

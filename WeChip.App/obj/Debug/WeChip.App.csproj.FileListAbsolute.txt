@@ -43,10 +43,11 @@ C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.exe.config
 C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.Forms.FormCliente.resources
 C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.Forms.FormHome.resources
 C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.Forms.FormLogin.resources
+C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.Forms.FormOfertas.resources
+C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.Forms.FormProduto.resources
 C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.Properties.Resources.resources
 C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.csproj.GenerateResource.cache
 C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.csproj.CoreCompileInputs.cache
 C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.csproj.CopyComplete
 C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.exe
 C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.pdb
-C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.Forms.FormProduto.resources

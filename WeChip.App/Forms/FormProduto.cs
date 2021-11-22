@@ -91,6 +91,11 @@ namespace WeChip.App.Forms
                 {
                     MessageBox.Show($"Cadastro do produto {textBoxDescricao.Text} realizado com sucesso", "Produto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpaCampos();
+                    textBoxCodigo.Enabled = false;
+                    textBoxDescricao.Enabled = false;
+                    textBoxPreco.Enabled = false;
+                    comboBoxProduto.Enabled = false;
+                    buttonSalvar.Enabled = false;
                 }
                 else                
                     throw new Exception("Erro ao tentar realizar requisição ao servidor");
