@@ -43,5 +43,38 @@ namespace WeChip.App.Repository
                 return response;
             }
         }
+
+        public async Task<List<Oferta>> GetOfertasAsync()
+        {
+            var response = new HttpResponseMessage();
+            var ofertas = new List<Oferta>();
+
+            try
+            {
+                HttpClient client = new HttpClient();
+
+                client.BaseAddress = new Uri("http://localhost:5000");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Login.Token);
+
+                response = await client.GetAsync("v1/ofertas/");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = response.Content.ReadAsStringAsync().Result;
+                    ofertas = JsonConvert.DeserializeObject<List<Oferta>>(result);
+                }
+
+                return ofertas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return ofertas;
+            }
+        }
     }
 }

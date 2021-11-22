@@ -51,3 +51,4 @@ C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.csproj.CoreCompileI
 C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.csproj.CopyComplete
 C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.exe
 C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.pdb
+C:\dev\WeChip.App\WeChip.App\WeChip.App\obj\Debug\WeChip.App.Forms.FormVendasRealizadas.resources

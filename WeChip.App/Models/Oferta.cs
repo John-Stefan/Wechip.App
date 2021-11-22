@@ -10,6 +10,7 @@ namespace WeChip.App.Models
     {
         public int Id { get; set; }
         public int ClienteId { get; set; }
+        public decimal ValorTotal { get; set; }
         public Endereco Endereco { get; set; }
         public List<int> ProdutosOfertasId { get; set; }
     }

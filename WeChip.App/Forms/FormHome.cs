@@ -51,5 +51,11 @@ namespace WeChip.App.Forms
             FormOfertas formOfertas = new FormOfertas();
             formOfertas.ShowDialog();
         }
+
+        private void listaDeVendasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormVendasRealizadas formVendasRealizadas = new FormVendasRealizadas();
+            formVendasRealizadas.ShowDialog();
+        }
     }
 }

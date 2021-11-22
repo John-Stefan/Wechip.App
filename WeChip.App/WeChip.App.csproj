@@ -174,6 +174,12 @@
     <Compile Include="Forms\FormProduto.Designer.cs">
       <DependentUpon>FormProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormVendasRealizadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVendasRealizadas.Designer.cs">
+      <DependentUpon>FormVendasRealizadas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\txtCredito.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -181,6 +187,7 @@
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Oferta.cs" />
+    <Compile Include="Models\OfertaProduto.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\ProdutoTipo.cs" />
     <Compile Include="Models\Status.cs" />
@@ -190,15 +197,18 @@
     <Compile Include="Repository\IClienteApiRepository.cs" />
     <Compile Include="Repository\ILoginApiRepository.cs" />
     <Compile Include="Repository\IOfertaApiRepository.cs" />
+    <Compile Include="Repository\IOfertaProdutoRepository.cs" />
     <Compile Include="Repository\IProdutoRepository.cs" />
     <Compile Include="Repository\IProdutoTipoRepository.cs" />
     <Compile Include="Repository\IStatusApiRepository.cs" />
     <Compile Include="Repository\LoginRepository.cs" />
     <Compile Include="Repository\OfertaApiRepository.cs" />
+    <Compile Include="Repository\OfertaProdutoRepository.cs" />
     <Compile Include="Repository\ProdutoRepository.cs" />
     <Compile Include="Repository\ProdutoTipoRepository.cs" />
     <Compile Include="Repository\StatusApiRepository.cs" />
     <Compile Include="View\ClienteModelGridView.cs" />
+    <Compile Include="View\VendasModelGridView.cs" />
     <EmbeddedResource Include="Forms\FormCliente.resx">
       <DependentUpon>FormCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormProduto.resx">
       <DependentUpon>FormProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVendasRealizadas.resx">
+      <DependentUpon>FormVendasRealizadas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

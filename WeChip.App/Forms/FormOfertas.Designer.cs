@@ -44,7 +44,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxRua = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBoxNumero = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxComplemento = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -66,6 +65,7 @@
             this.textBoxCredito = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.textBoxValorTotal = new System.Windows.Forms.TextBox();
+            this.textBoxNumero = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
             this.SuspendLayout();
@@ -117,6 +117,7 @@
             // maskedTextBoxCPF
             // 
             this.maskedTextBoxCPF.Location = new System.Drawing.Point(448, 139);
+            this.maskedTextBoxCPF.Mask = "000,000,000-00";
             this.maskedTextBoxCPF.Name = "maskedTextBoxCPF";
             this.maskedTextBoxCPF.Size = new System.Drawing.Size(165, 20);
             this.maskedTextBoxCPF.TabIndex = 6;
@@ -124,6 +125,7 @@
             // maskedTextBoxTelefone
             // 
             this.maskedTextBoxTelefone.Location = new System.Drawing.Point(448, 196);
+            this.maskedTextBoxTelefone.Mask = "(00) 00000-0000";
             this.maskedTextBoxTelefone.Name = "maskedTextBoxTelefone";
             this.maskedTextBoxTelefone.Size = new System.Drawing.Size(165, 20);
             this.maskedTextBoxTelefone.TabIndex = 7;
@@ -177,6 +179,7 @@
             // maskedTextBoxCEP
             // 
             this.maskedTextBoxCEP.Location = new System.Drawing.Point(861, 83);
+            this.maskedTextBoxCEP.Mask = "00000-000";
             this.maskedTextBoxCEP.Name = "maskedTextBoxCEP";
             this.maskedTextBoxCEP.Size = new System.Drawing.Size(165, 20);
             this.maskedTextBoxCEP.TabIndex = 15;
@@ -205,13 +208,6 @@
             this.label9.Size = new System.Drawing.Size(44, 13);
             this.label9.TabIndex = 20;
             this.label9.Text = "Numero";
-            // 
-            // textBoxNumero
-            // 
-            this.textBoxNumero.Location = new System.Drawing.Point(861, 196);
-            this.textBoxNumero.Name = "textBoxNumero";
-            this.textBoxNumero.Size = new System.Drawing.Size(77, 20);
-            this.textBoxNumero.TabIndex = 21;
             // 
             // label10
             // 
@@ -401,11 +397,21 @@
             this.textBoxValorTotal.Size = new System.Drawing.Size(110, 20);
             this.textBoxValorTotal.TabIndex = 42;
             // 
+            // textBoxNumero
+            // 
+            this.textBoxNumero.Location = new System.Drawing.Point(861, 196);
+            this.textBoxNumero.Mask = "00000";
+            this.textBoxNumero.Name = "textBoxNumero";
+            this.textBoxNumero.Size = new System.Drawing.Size(77, 20);
+            this.textBoxNumero.TabIndex = 43;
+            this.textBoxNumero.ValidatingType = typeof(int);
+            // 
             // FormOfertas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1243, 762);
+            this.Controls.Add(this.textBoxNumero);
             this.Controls.Add(this.textBoxValorTotal);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.textBoxCredito);
@@ -427,7 +433,6 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBoxComplemento);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBoxNumero);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBoxRua);
             this.Controls.Add(this.label8);
@@ -471,7 +476,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxRua;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxNumero;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxComplemento;
         private System.Windows.Forms.Label label11;
@@ -493,5 +497,6 @@
         private System.Windows.Forms.TextBox textBoxCredito;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBoxValorTotal;
+        private System.Windows.Forms.MaskedTextBox textBoxNumero;
     }
 }
